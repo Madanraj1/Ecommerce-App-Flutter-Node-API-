@@ -1,4 +1,5 @@
 import 'package:EcommerceApp/Screens/Authentication/signupScreen.dart';
+import 'package:EcommerceApp/Screens/product/mainScreen.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -89,6 +90,11 @@ class _SignInScreenState extends State<SignInScreen> {
                         style: TextStyle(fontSize: 20),
                       ),
                       onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MainScreen()));
+
                         print(nameController.text);
                         print(passwordController.text);
                       },
