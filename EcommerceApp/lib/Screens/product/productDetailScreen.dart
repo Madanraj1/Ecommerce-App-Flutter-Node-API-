@@ -1,3 +1,4 @@
+import 'package:EcommerceApp/Screens/product/cartScreen.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -35,7 +36,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               size: 30,
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CartScreen()));
             },
           ),
         ],
