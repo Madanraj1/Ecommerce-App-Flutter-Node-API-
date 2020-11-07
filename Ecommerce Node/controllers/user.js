@@ -42,6 +42,13 @@ exports.updateProfile = (req, res) => {
                     error: "updating profile failed"
                 })
             }
+
+            if (req.body.password) {
+                return res.status(400).json({
+                    error: "you cannot update password here"
+                })
+            }
+
             updateduser.salt = undefined;
             updateduser.encryptedPassword = undefined;
             updateduser.__v = undefined;

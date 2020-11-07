@@ -9,7 +9,7 @@ const { getUserById, getUser, updateProfile } = require("../controllers/user");
 
 router.param("userId", getUserById);
 router.get("/user/:userId", isSignedIn, isAuthenticated, getUser);
-router.post("/user/:userId", isSignedIn, isAuthenticated, updateProfile);
+router.put("/user/:userId", isSignedIn, isAuthenticated, updateProfile);
 
 
 

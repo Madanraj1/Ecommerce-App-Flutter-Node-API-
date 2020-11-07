@@ -7,12 +7,14 @@ const cookieParser = require("cookie-parser");
 const app = express();
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const productRoutes = require("./routes/product");
 
 
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useFindAndModify: true
 }).then(() => {
     console.log("DB CONNECTED");
 })
@@ -29,6 +31,7 @@ app.use(cookieParser());
 // base routes
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
+app.use("/api", productRoutes);
 
 
 
