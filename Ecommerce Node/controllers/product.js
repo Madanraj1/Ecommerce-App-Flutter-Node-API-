@@ -1,6 +1,7 @@
 const Product = require("../models/product");
 const formidable = require("formidable");
 const fs = require("fs");
+const _= require("lodash");
 
 
 
@@ -99,7 +100,8 @@ exports.updateProduct = (req, res) => {
         //     });
         // }
 
-        let product = new Product(fields);
+        let product = req.product;
+         product =  _.extend(product, fields);
 
         if (file.photo) {
             if (file.photo.size > 3000000) {
@@ -111,10 +113,6 @@ exports.updateProduct = (req, res) => {
             product.photo.contentType = file.photo.type
 
         }
-
-
-
-
         // saving in DB
         product.save((error, updateProduct) => {
 
@@ -125,10 +123,7 @@ exports.updateProduct = (req, res) => {
                 })
             }
             return res.json(updateProduct);
-
         });
-
-
     });
 }
 
